@@ -514,23 +514,40 @@ section {
 }
 
 .toolkit-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.skill-pill {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.3);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 0.8rem 1rem;
+.toolkit-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(44, 53, 44, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toolkit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(44, 53, 44, 0.06);
+}
+
+.toolkit-category {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5a6b5a;
+  margin-bottom: 0.5rem;
   font-weight: 600;
-  line-height: 1.2;
-  box-shadow: 0 10px 24px rgba(14, 18, 14, 0.02);
+}
+
+.toolkit-items {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #2c352c;
+  margin: 0;
 }
 
 .edu-card {
@@ -605,6 +622,13 @@ section {
   color: var(--sage);
 }
 
+footer {
+  text-align: center;
+  padding: 3rem 0;
+  color: rgba(44, 53, 44, 0.6);
+  font-size: 0.875rem;
+}
+
 .site-footer {
   padding: 2.8rem 0 3.5rem;
   color: var(--muted);
@@ -620,7 +644,17 @@ section {
   gap: 1rem;
   flex-wrap: wrap;
 }
+@media (max-width: 900px) {
+  .toolkit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+@media (max-width: 600px) {
+  .toolkit-grid {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 680px) {
   .site-header {
     padding-top: 0.7rem;
